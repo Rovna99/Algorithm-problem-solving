@@ -1,3 +1,4 @@
+import heapq
 import collections
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
