@@ -1,13 +1,13 @@
+# 병합 정렬..
 num = []
 
-
-def sort(nums):
-    if len(nums) <= 1:
+def sort(num):
+    if len(num) <= 1:
         return
 
-    half = len(nums) // 2
-    left = nums[:half]
-    right = nums[half:]
+    half = len(num) // 2
+    left = num[:half]
+    right = num[half:]
     sort(left)
     sort(right)
 
@@ -15,19 +15,19 @@ def sort(nums):
 
     while i1 < len(left) and i2 < len(right):
         if left[i1] < right[i2]:
-            nums[ia] = left[i1]
+            num[ia] = left[i1]
             i1 += 1
             ia += 1
         else:
-            nums[ia] = right[i2]
+            num[ia] = right[i2]
             i2 += 1
             ia += 1
     while i1 < len(left):
-        nums[ia] = left[i1]
+        num[ia] = left[i1]
         i1 += 1
         ia += 1
     while i2 < len(right):
-        nums[ia] = right[i2]
+        num[ia] = right[i2]
         i2 += 1
         ia += 1
 
@@ -35,6 +35,10 @@ def sort(nums):
 for i in range(int(input())):
     num.append(int(input()))
 
+
 sort(num)
+
 for i in num:
     print(i)
+
+#2 파이썬 소트 사용용
