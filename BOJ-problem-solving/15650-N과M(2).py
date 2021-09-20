@@ -1,6 +1,7 @@
 N, M = map(int, input().split())
 result = []
 
+
 def NaM(s):
     if len(result) == M:
         print(' '.join(map(str, result)))
