@@ -8,7 +8,7 @@ def NaM(s):
         return
 
     for i in range(1, N+1):
-        if len(result) > 0 and result[0] > i:
+        if len(result) > 0 and result[-1] > i:
             continue
         else:
             result.append(i)
