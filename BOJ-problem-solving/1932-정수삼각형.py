@@ -17,3 +17,5 @@ for i in range(1, N):
             dp[i][j] = max(dp[i][j]+dp[i-1][j], dp[i][j]+dp[i-1][j-1])
     index += 1
 print(max(dp[N-1]))
+
+
