@@ -5,7 +5,7 @@ for i in range(N):
     line.append(list(map(int, input().split())))
 
 line.sort()
-print(line)
+
 for i in range(N):
     for j in range(i):
         if line[i][1] > line[j][1] and dp[i] < dp[j]+1:
