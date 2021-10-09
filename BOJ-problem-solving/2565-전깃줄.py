@@ -1,8 +1,14 @@
 N = int(input())
+dp = [1 for i in range(N)]
 line = []
-print(line)
-for _ in range(N):
-    a, b = map(int, input().split())
-    line[a] = b
+for i in range(N):
+    line.append(list(map(int, input().split())))
 
+line.sort()
 print(line)
+for i in range(N):
+    for j in range(i):
+        if line[i][1] > line[j][1] and dp[i] < dp[j]+1:
+            dp[i] = dp[j]+1
+
+print(N-max(dp))
