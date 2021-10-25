@@ -1,16 +1,18 @@
-import collections
+import sys
 
-T = int(input())
+T = int(sys.stdin.readline())
 
 for _ in range(T):
-    n = int(input())
-    wear = []
-    for i in range(n):
-        a, b = map(str, input().split())
-        wear.append(b)
+    n = int(sys.stdin.readline())
+    wear = {}
+    for _ in range(n):
+        a, b = sys.stdin.readline().split()
+        if b in wear:
+            wear[b] += 1
+        else:
+            wear[b] = 1
     num = 1
-    result = collections.Counter(wear)
-    for cnt in result:
-        num *= (result[cnt]+1)
+    for k, v in wear.items():
+        num *= (v+1)
     print(num-1)
 
