@@ -7,4 +7,3 @@ for n in result:
 result -= del_num  # 생성자가 있는 수들 제거
 for i in sorted(result):
     print(i)
-    
