@@ -1,23 +1,53 @@
-def DCA(a, b):
-    if b == 0:
-        return 1
-    if b % 2:
-        return (DCA(a, b//2) ** 2 * a) % div
-    else:
-        return (DCA(a, b//2) ** 2) % div
-
-
 N, K = map(int, input().split())
 div = 1000000007
 
-fact = [1 for i in range(N+1)]
 
-for i in range(2, N+1):
-    fact[i] = fact[i-1] * i % div
+def fact(num, mod):
+    result = 1
+    for i in range(1, num + 1):
+        result = result * i % mod
+    return result
 
-n = fact[N]
-k = (fact[N-K] * fact[K]) % div
 
-print((n % div) * (DCA(k, div-2) % div) % div)
+def power(num, p, mod):
+    if p == 1:
+        return num % mod
+    temp = power(num, p//2, mod)
+
+    if p % 2 == 0:
+        return temp * temp % mod
+    else:
+        return temp * temp * num % mod
+
+
+a = fact(N, div)
+b = power((fact(N-K, div)*fact(K, div)), div-2, div)
+print(a * b % div)
+
+# N, K = map(int, input().split())
+# div = 1000000007
+#
+# a, b = 1, 1
+# for i in range(1, N+1):
+#     a = (a * i) % div
+# for i in range(1, N-K+1):
+#     b = (b * i) % div
+# for i in range(1, K+1):
+#     b = (b * i) % div
+#
+#
+# def power(num, p, mod):
+#     if p == 1:
+#         return num % mod
+#     temp = power(num, p//2, mod)
+#
+#     if p % 2 == 0:
+#         return temp * temp % mod
+#     else:
+#         return temp * temp * num % mod
+#
+#
+# b = power(b, div - 2, div)
+# print(a * b % div)
 
 
